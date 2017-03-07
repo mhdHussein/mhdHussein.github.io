@@ -22,6 +22,9 @@ export class LoginComponent implements OnInit {
   constructor(private auth:AuthService , private router:Router , public snackBar: MdSnackBar) { }
 
   ngOnInit() {
+    if(this.auth.isAuthenticated()){
+      this.router.navigate(['/surahs']);
+    }
   }
 
   login(){

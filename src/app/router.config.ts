@@ -3,14 +3,8 @@ import {SurahListComponent} from "./surah-list/surah-list.component";
 import {ContemplationListComponent} from "./contemplation-list/contemplation-list.component";
 import {LoginComponent} from "./login/login.component";
 import {AuthGuard} from "./services/auth-guard.service";
-
 export const routerConfig: Route[] =
   [
-    {
-      path: '',
-      redirectTo : 'surahs',
-      pathMatch : 'full'
-    },
 
     {
         path: 'surahs',
@@ -35,6 +29,12 @@ export const routerConfig: Route[] =
     {
       path: 'login',
       component : LoginComponent
+    },
+    {
+      path: '',
+      redirectTo : 'login',
+      pathMatch : 'full'
+
     }
 
   ];
