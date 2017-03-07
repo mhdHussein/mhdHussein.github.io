@@ -1,1 +1,38 @@
 /* You can add global styles to this file, and also import other style files */
+@import '~@angular/material/core/theming/prebuilt/deeppurple-amber.css';
+
+*{
+  direction: rtl;
+}
+md-toolbar{
+  text-align: right;
+}
+
+.spacer{
+  -webkit-box-flex: 1;
+  -ms-flex: 1 1 auto;
+  flex: 1 1 auto;
+}
+
+md-card{
+  margin-top: 3rem;
+  background-color: lightgray;
+}
+
+.page-buttons{
+
+  margin: 3rem auto;
+}
+
+.left{
+  text-align: left;
+}
+
+.center-text{
+  text-align: center;
+}
+
+.full-width{
+  width: 100%;
+
+}

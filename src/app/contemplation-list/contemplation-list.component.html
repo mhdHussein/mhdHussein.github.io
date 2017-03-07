@@ -1,0 +1,95 @@
+<div class="container">
+  <div class="row page-buttons center" >
+    <div class="col-xs-6">
+      <button md-fab color="primary" (click)="previous()" [disabled]="isFirstPage()">
+
+        <md-icon class="md-24">skip_next</md-icon>
+      </button>
+
+    </div>
+
+    <div class="col-xs-6 left">
+      <button md-fab color="primary" (click)="next()" [disabled]="isLastPage()">
+        <md-icon class="md-24">skip_previous</md-icon>
+      </button>
+    </div>
+  </div>
+  <div class="row right" *ngIf="loaded">
+
+    <div class="col-md-8 col-md-offset-2 con-card" *ngFor="let con of contemplations" >
+      <md-card >
+
+        <md-card-title>{{con.surah_name}}</md-card-title>
+
+        <hr>
+        <md-card-content >
+          <h3 class="ayah">
+              {{con.ayahText}}
+          </h3>
+          <hr>
+          <h3 class="contemplation">
+              {{con.text}}
+          </h3>
+        </md-card-content>
+        <md-card-actions align="end" >
+          <div *ngIf="!con.url">
+            <form class="form-inline" *ngIf="!file?.isUploading" (ngSubmit)="uploadFile(con.$key)">
+              <div class="form-control">
+                <input type="file" id="file" name="file" ngModel (change)="onChange($event)" >
+              </div>
+              <button md-raised-button color="primary" type="submit">
+                <md-icon>file_upload</md-icon>
+              </button>
+            </form>
+          </div>
+          <div *ngIf="con.url" class="full-width">
+            <audio id="player" controls="controls" class="full-width">
+              <source src="{{con.url}}">
+            </audio>
+            <button md-mini-fab color="primary" (click)="deleteAudioFile(con.$key , con.audioFileName)">حذف</button>
+          </div>
+          <div *ngIf="file?.isUploading">
+            <md-spinner [mode]="determinate" [value]="file?.progress"></md-spinner>
+          </div>
+        </md-card-actions>
+
+
+
+      </md-card>
+    </div>
+    <!--<div class="col-md-6 con-card" >-->
+      <!--<md-card >-->
+
+        <!--<md-card-title>{{surahName}}</md-card-title>-->
+        <!--<md-card-subtitle>-->
+          <!--55 آية-->
+        <!--</md-card-subtitle>-->
+
+        <!--<hr>-->
+        <!--<md-card-content >-->
+          <!--<h3 class="ayah">-->
+            <!--لمحتوى) ويُستخدم في صناعات المطابع ودور النشر. كان لوريم إيبسوم ولايزال المعيار للنص الشكلي منذ القرن الخامس عشر عندما قامت مطبعة مجهولة برص مجموعة من الأحرف بشكل عشوائي أخذتها من نص، لتكوّن كتيّب بمثابة دليل أو مرجع شكلي لهذه الأحرف. خمسة قرون من الزمن لم تقضي على هذا النص، بل انه حتى صار مستخدماً وبشكله الأصلي في الطباعة والتنضيد-->
+          <!--</h3>-->
+          <!--<hr>-->
+          <!--<h3 class="contemplation">-->
+            <!--ناك حقيقة مثبتة منذ زمن طويل وهي أن المحتوى المقروء لصفحة ما سيلهي القارئ عن التركيز على الشكل الخارجي للنص أو شكل توضع الفقرات في الصفحة التي يقرأها. ولذلك يتم استخدام طريقة لوريم إيبسوم لأنها تعطي توزيعاَ طبيعياَ -إلى حد ما- للأحرف عوضاً عن استخدام "هنا يوجد محتوى نصي، هنا يوجد محتوى نصي" فتجعلها تبدو (أي الأحرف) وكأنها نص مقروء. العديد من-->
+          <!--</h3>-->
+        <!--</md-card-content>-->
+        <!--<md-card-actions class="center-text">-->
+
+
+        <!--</md-card-actions>-->
+
+      <!--</md-card>-->
+
+    <!--</div>-->
+    <!---->
+  </div>
+  <div  *ngIf="!loaded" class="row">
+    <div class="col-xs-3 col-xs-offset-5">
+      <md-spinner></md-spinner>
+    </div>
+
+  </div>
+</div>
+

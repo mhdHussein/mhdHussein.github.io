@@ -19,6 +19,8 @@
       "tsconfig": "tsconfig.json",
       "prefix": "app",
       "styles": [
+        "../node_modules/bootstrap/dist/css/bootstrap.css",
+        "../node_modules/bootstrap-rtl/dist/css/bootstrap-rtl.css",
         "styles.css"
       ],
       "scripts": [],

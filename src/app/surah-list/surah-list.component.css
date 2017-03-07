@@ -1,0 +1,41 @@
+md-card-content{
+  text-align: center;
+}
+
+md-card ,  md-card-content{
+  background-color: lightgreen;
+}
+md-card-header{
+  background-color: black !important;
+}
+
+md-card{
+  margin-bottom: 3rem;
+  cursor: pointer;
+}
+md-spinner{
+  margin-top: 5rem;
+}
+
+
+md-sidenav{
+    background-color: lightgreen;
+    max-width: 65%;
+}
+
+md-sidenav{
+  background-color: lightgreen;
+  max-width: 65%;
+}
+
+button[md-mini-fab]{
+  margin-bottom: 2rem;
+}
+
+
+
+[md-raised-button]{
+  width: 90%;
+  margin: 1.5rem;
+
+}
